@@ -1,0 +1,39 @@
+@model User
+
+@{
+    ViewData["Title"] = "Registration Page";
+}
+<body class="reg-body">
+<div class="reg-container">
+        <form asp-action="Register" asp-controller="Home"  method="POST">
+            <h2>Register</h2>
+            <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <span class="text-danger font-weight-bold" asp-validation-for="FirstName"></span>
+                <input class="form-control" asp-for="FirstName"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <span class="text-danger font-weight-bold" asp-validation-for="LastName"></span>
+                <input class="form-control" asp-for="LastName"/>
+            </div>
+                <div class="form-group">
+                <label asp-for="Email"></label>
+                <span class="text-danger font-weight-bold" asp-validation-for="Email"></span>
+                <input class="form-control" asp-for="Email"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <span class="text-danger font-weight-bold" asp-validation-for="Password"></span>
+                <input class="form-control" asp-for="Password"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordConfirm"></label>
+                <span class="text-danger font-weight-bold" asp-validation-for="PasswordConfirm"></span>
+                <input class="form-control" asp-for="PasswordConfirm"/>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Register</button>
+        </form>
+
+</div>
+</body>

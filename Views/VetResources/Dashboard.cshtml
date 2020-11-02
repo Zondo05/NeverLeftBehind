@@ -1,0 +1,44 @@
+@model List<Resource>
+
+<body class="dash">
+    <h1>Battle Buddy</h1>
+    <p>If this is an Emergency please DIAL 911</p>
+    <p><a href="https://www.veteranscrisisline.net/">Vet Crisis Line</a></p>
+
+    <hr>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var resource in Model)
+                {
+                <tr>
+                    <td><a asp-action="Details" asp-controller="VetResources"
+                    asp-route-resourceId="@resource.ResourceId">@resource.ResourceName</a></td>
+                    <td>@resource.Address</td>
+                    <td>@resource.PhoneNumber</td>
+                    @if (resource.UserId == ViewBag.UserId)
+                    {
+                    <td><a asp-action="Delete" asp-controller="VetResources" asp-route-resourceId="@resource.ResourceId">Delete</a></td>
+                    }
+                    else if (resource.Responses.Any(r => r.UserId == ViewBag.UserId))
+                    {
+                        <td><a asp-action="Leave" asp-controller="Responses" asp-route-resourceId="@resource.ResourceId">Leave</a></td>
+                    }
+                    else
+                    {
+                        <td><a asp-action="Join" asp-controller="Responses" asp-route-resourceId="@resource.ResourceId">Join</a></td>
+                    }
+                </tr>
+                }
+        </tbody>
+    </table>
+    <a asp-action="New" asp-controller="VetResources" class="btn btn-primary">Be a Buddy </a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Log Out</a>
+    </body>

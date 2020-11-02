@@ -1,0 +1,12 @@
+@model Resource
+
+<body class="details">
+<h1>Battle Buddy</h1>
+<hr>
+<h2>@Model.ResourceName  | <a  asp-action="Dashboard" asp-controller="VetResources" class="btn btn-primary">Buddy List</a>
+<hr>
+<br>
+<h4>Phone Number : @Model.PhoneNumber</h4>
+<br>
+<h4>Description: @Model.Desc</h4>
+</body>

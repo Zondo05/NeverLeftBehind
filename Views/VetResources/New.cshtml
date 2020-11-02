@@ -1,0 +1,40 @@
+@model Resource
+
+@{
+    ViewBag.Title = "Create Resource";
+}
+
+<body class="new">
+<h1>Be A Resource</h1>
+<hr>
+
+<form asp-action="Create" asp-controller="VetResources" method="POST">
+    <div class="form-group">
+        <label asp-for="ResourceName"></label>
+        <span class="text-danger font-weight-bold" asp-validation-for="ResourceName"></span>
+        <input asp-for="ResourceName" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <span  class="text-danger font-weight-bold" asp-validation-for="Address"></span>
+        <input asp-for="Address" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <span  class="text-danger font-weight-bold" asp-validation-for="PhoneNumber"></span>
+        <input asp-for="PhoneNumber" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Desc"></label>
+        <span class="text-danger font-weight-bold" asp-validation-for="Desc"></span>
+        <input asp-for="Desc" class="form-control">
+    </div>
+
+    <input type="submit" value="Create" class="btn btn-success">
+    <a asp-action="Dashboard" asp-controller="VetResources" class="btn btn-primary">Dashboard</a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Log Out</a>
+</form>
+</body>
